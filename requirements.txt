@@ -1,0 +1,9 @@
+cogwatch==3.1.0
+discord.py==2.0.1
+imslp==0.2.1
+pandas==1.3.4
+protobuf==4.21.9
+pymongo==3.12.0
+requests==2.18.4
+riotwatcher==3.1.2
+six==1.16.0
