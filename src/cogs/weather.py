@@ -2,7 +2,7 @@ from discord.ext import commands
 
 class Weather(commands.Cog):
 
-    @commands.command(usage = ": ) weather <zipcode> or <town>")
+    @commands.command(usage = "weather <zipcode> or <town>")
     async def weather(self, ctx, *args):
         pass
 

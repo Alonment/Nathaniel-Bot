@@ -7,8 +7,11 @@ class Test(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(usage="help.")
     async def ex(self, ctx):
+        """
+        Test.
+        """
         await ctx.send("Yessir")
 
     @commands.command()

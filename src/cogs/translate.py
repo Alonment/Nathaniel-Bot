@@ -9,9 +9,11 @@ class GoogleTranslateAPI(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(usage = ": ) translate <target language> <text>")
+    @commands.command(usage="translate <target language> <text>")
     async def translate(self, ctx, targetLanguage, *words):
-        """Translates the inputted text into a specific language."""
+        """
+        Translates the inputted text into the specific language.
+        """
 
         if len(words) == 0:
             await ctx.send("You gotta give me something to translate man.")
@@ -40,9 +42,11 @@ class GoogleTranslateAPI(commands.Cog):
         result = translateInstance.translate(text, targetLanguage)
         await ctx.send(result["translatedText"])
 
-    @commands.command(usage = ": ) language <text>")
+    @commands.command(usage="language <text>")
     async def language(self, ctx, *words):
-        """Detects the language of the inputted text."""
+        """
+        Detects the language of the inputted text.
+        """
 
         translateInstance = translate.Client()
         response = translateInstance.detect_language(" ".join(words))
@@ -58,9 +62,11 @@ class GoogleTranslateAPI(commands.Cog):
 
         await ctx.send(f"Yeah, pretty sure this is {language}.")
 
-    @commands.command(usage = ": ) garble <text>")
+    @commands.command(usage="garble <text>")
     async def garble(self, ctx, *words):
-        """See and find out."""
+        """
+        See and find out.
+        """
         
         text = " ".join(words)
         translateInstance = translate.Client()

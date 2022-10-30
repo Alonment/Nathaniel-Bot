@@ -10,9 +10,12 @@ class SheetMusic(commands.Cog):
         self.bot = bot
         self.source = client.ImslpClient()
 
-    @commands.command(usage = ": ) piece <query>")
+    @commands.command(usage="piece <query>")
     async def piece(self, ctx, *args):
-        """Returns search results for the location of sheet music in IMSLP. Be as specific as possible."""
+        """
+        Returns search results for the location of sheet music in IMSLP.
+        Be as specific as possible.
+        """
         
         if not args:
             await ctx.send("Missing arguments: -piece <Title of Piece> <Composer>")
@@ -40,9 +43,12 @@ class SheetMusic(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(usage = ": ) composer <name of composer>")
+    @commands.command(usage="composer <name of composer>")
     async def composer(self, ctx, *, name):
-        """Returns a link to all of a composer's works. Be as specific as possible."""
+        """
+        Returns a link to all of a composer's works.
+        Be as specific as possible.
+        """
 
         search = self.source.search_people(name)
         if len(search) == 0:

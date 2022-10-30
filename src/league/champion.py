@@ -22,7 +22,9 @@ class Champion:
 
     @staticmethod
     def exists(champion: str) -> bool:
-        """Static method to determine if the name input is even valid."""
+        """
+        Static method to determine if the name input is even valid.
+        """
 
         source = LolWatcher(os.environ["LOL_API_KEY"])
         version = source.data_dragon.versions_for_region('na1')['n']['champion']
@@ -34,17 +36,23 @@ class Champion:
         return True
 
     def getFullTitle(self) -> str:
-        """Returns a champion's name concatenated with their title."""
+        """
+        Returns a champion's name concatenated with their title.
+        """
 
         return f"{self.name} {self.title}"
     
     def getIconUrl(self) -> str:
-        """Returns the data dragon endpoint containing the champs default splash icon."""
+        """
+        Returns the data dragon endpoint containing the champs default splash icon.
+        """
 
         return f"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{self.id}_0.jpg"
     
     def getAbilities(self) -> list:
-        """Parses the champion's ability information into a readable string."""
+        """
+        Parses the champion's ability information into a readable string.
+        """
 
         passive = self.passive
         ret = [(f"Passive: {passive['name']}", f"**Description:** {passive['description']}")]

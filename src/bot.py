@@ -16,7 +16,7 @@ class NathanielBot(commands.Bot):
             # "src.cogs.google_translate_api",
             # "src.cogs.league",
             # "src.cogs.sheet_music",
-            "src.cogs.tests",
+            "src.cogs.test",
             "src.cogs.admin",
             # "src.cogs.weather"
         ]
@@ -48,18 +48,18 @@ class HelpCommand(commands.HelpCommand):
                 if len(commandNames) == 0:
                     continue
 
-                embed.add_field(name = cog.qualified_name, value = ", ".join(commandNames), inline = False)
+                embed.add_field(name=cog.qualified_name, value=", ".join(commandNames), inline=False)
 
-        await self.get_destination().send(embed = embed)
+        await self.get_destination().send(embed=embed)
 
     async def send_command_help(self, command):
         
         if command.hidden:
             return 
 
-        embed = discord.Embed(title = command.name, 
-                              description = command.help,
-                              colour = discord.Colour.dark_red())
+        embed = discord.Embed(title=command.name, 
+                              description=command.help,
+                              colour=discord.Colour.dark_red())
 
-        embed.add_field(name = "*usage:* ", value = f"```{command.usage}```")
-        return await self.get_destination().send(embed = embed)
+        embed.add_field(name="*usage:* ", value=f"```-{command.usage}```")
+        return await self.get_destination().send(embed=embed)

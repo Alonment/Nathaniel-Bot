@@ -43,7 +43,9 @@ class Summoner:
         self.version = versions['n']
     
     def getProfileIcon(self) -> str:
-        """Retrieves a summoner's active profile icon."""
+        """
+        Retrieves a summoner's active profile icon.
+        """
 
         version = self.source.data_dragon.versions_for_region('na1')['n']['profileicon']
         req = requests.get(
@@ -77,9 +79,9 @@ class Summoner:
                f" **{seconds// 60}** minutes and **{seconds % 60}** seconds now."
 
     def getChampionInfo(self, champion: str) -> dict:
-        """Returns all information regarding a particular champion."""
-        #dict_keys(['id', 'key', 'name', 'title', 'image', 'skins', 'lore', 'blurb', 
-        # 'allytips', 'enemytips', 'tags', 'partype', 'info', 'stats', 'spells', 'passive', 'recommended'])
+        """
+        Returns all information regarding a particular champion.
+        """
 
         champions = self.source.data_dragon.champions(self.version['champion'])['data']
 

@@ -3,8 +3,8 @@ import os
 
 from discord.ext import commands
 from riotwatcher import LolWatcher
-from league.summoner import Summoner
-from league.champion import Champion
+from src.league.summoner import Summoner
+from src.league.champion import Champion
 from requests import HTTPError
 
 class League(commands.Cog):
@@ -17,9 +17,10 @@ class League(commands.Cog):
         self.version = self.watcher.data_dragon.versions_for_region('na1')
         self.championStats = self.watcher.data_dragon.champions(self.version['n']['champion'], True)
 
-    @commands.command(usage = ": ) profile <summoner name>")
+    @commands.command(usage="profile <summoner name>")
     async def profile(self, ctx, *args):
-        """Returns a snapshot of the summoner's account stats.
+        """
+        Returns a snapshot of the summoner's account stats.
         
         Sends a Discord embed object containing a Summoner's information, 
         or nothing in case that the summoner could not be found.
@@ -76,9 +77,11 @@ class League(commands.Cog):
 
         await ctx.send(embed = embed)
 
-    @commands.command(usage=": ) champion <champion_name>", aliases=["champ"])
+    @commands.command(usage="champion <champion_name>", aliases=["champ"])
     async def champion(self, ctx, *args):
-        """Returns a detailed embed of a champions information."""
+        """
+        Returns a detailed embed of a champions information.
+        """
         
         name = " ".join(args)
 
@@ -106,15 +109,19 @@ class League(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(usage=": ) item <item_name>")
+    @commands.command(usage="item <item_name>")
     async def item(self, ctx, *args):
-        """Returns a detailed embed of an item's information."""
+        """
+        Returns a detailed embed of an item's information.
+        """
         
         name = " ".join(args)
         
     
     def removePunctuation(self, string: str) -> str:
-        """Helper function to remove all punctuation from a string."""
+        """
+        Helper function to remove all punctuation from a string.
+        """
 
         ret = ""
         for letter in string:
